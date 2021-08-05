@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up</title>
+</head>
+<body>
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <form action="{% url 'app:register' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="username" id="username" placeholder="username">
+        <input type="email" name="email" id="email" placeholder="Email">
+        <input type="password" name="password1" id="password1" placeholder="Password">
+        <input type="password" name="password2" id="password2" placeholder="Confirm Password">
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+        </button>
+    </form>
+    <p>Already have an account? <a href="{% url 'app:login' %}">Login</a></p>
+</div>
+{% endblock content %}
+</body>
+</html>
